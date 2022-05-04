@@ -5,19 +5,13 @@ const port = process.env.PORT || process.env.SERVER_PORT
 
 const app = express()
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'))
-})
-
 app.use(express.json())
 
 app.use('/js', express.static(path.join(__dirname, 'public/main.js')))
 
-app.get('/',function(req,res) {
-  res.sendFile(path.join(__dirname, '../index.html'));
-});
-
-const port = process.env.PORT || 4005
+app.get('/', (req,res) => {
+  res.sendFile(path.join(__dirname, '../index.html'))
+})
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
